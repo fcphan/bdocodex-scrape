@@ -236,7 +236,6 @@ def imageScraper():
 
       with open(file_path, 'wb') as img:
         image.save(img, 'WebP')
-      # console.print(f'Downloaded {file_name} successfully.', style='green')
     except Exception as e:
       console.print(f'Failed to download {file_name}. Error - {e}', style='red bold')
 
@@ -245,28 +244,6 @@ def imageScraper():
       imageUrls = []
       driver.get(url)
       time.sleep(delay)
-
-      """
-      pagination = driver.find_element(By.CLASS_NAME, 'pagination')
-      pages = pagination.find_elements(By.TAG_NAME, 'li')
-      last_page = int(pages[-2].text)
-      current_page = 1
-
-      while current_page <= last_page:
-        time.sleep(delay+2)
-
-        thumbnails = driver.find_elements(By.CLASS_NAME, 'icon_wrapper')
-        for img in thumbnails:
-          image = img.find_element(By.TAG_NAME, 'img')
-          if image.get_attribute('src') and 'http' in image.get_attribute('src'):
-            imageUrls.append(image.get_attribute('src'))
-
-        current_page += 1
-        try:
-          driver.find_element(By.ID, 'WeaponTable_next').click()
-        except:
-          pass
-      """
 
       # Set page length to 200 items
       # select = Select(driver.find_element(By.NAME, 'WeaponTable_length'))
